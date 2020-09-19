@@ -5,9 +5,10 @@ export default async function getCity(location) {
       
     const resData = await res.json()
 
-    console.log(resData.cod)
+    
 
-    if(resData.cod === 404|| resData.cod === 400){
+    if(resData.cod == '404'|| resData.cod == '400'){
+      
       return resData
 
     }

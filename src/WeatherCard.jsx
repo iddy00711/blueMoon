@@ -2,16 +2,20 @@ import React from 'react';
 import {View, Text} from 'react-native';
 
 export default function WeatherCard(props){
-      const { temp, humidity } = props.route.params;
+      const { 
+          temp,humidity, pressure, name, visibility, id:weatherId, description, icon, speed:windSpeed, country, sunrise, sunset
+        } = props.route.params;
      
-    //  const { otherParam } = route.params;
-    console.log(props)
 
     let tempx = Math.round( temp-273, 2)
 
     
    return ( <View>
         <Text>
+        {name}
+        {country}
+        {description}
+        {windSpeed}
         itemId: {tempx+'c'} 
         humid:1
         </Text>

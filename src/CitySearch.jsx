@@ -14,24 +14,35 @@ export default function CitySearch (props){
 
    }
     
+   function hadndleAlert(){
+   return console.log(1)
+   }
     //get data from Api, send to weathercard comp
    function handleCity(city){
 
     getCity(cityText).then(res=>{
-      return console.log(res)
-    //   if(res.cod!== 404)
-    //  { const {main, name, sys, visibility, weather, wind} = res
+      
 
-    //   const {temp, humidity, pressure} = main;
-    //   const {country, sunrise, sunset} = sys;
-    //   const {id, description, icon} = weather[0]
-    //   const {speed} = wind
+      
+      if(res.cod=== '404' || res.cod === '400')
+     { 
+      Alert.alert(
+        'Error', res.message
+      )
+       }
 
-    //   return props.navigation.navigation.navigate('WeatherCard',
-    //     {temp,humidity, pressure, name, visibility, id, description, icon, speed, country, sunrise, sunset})}
-    //     else{
-    //       <Alert>{res.message}</Alert>
-    //     }
+        else  {
+          const {main, name, sys, visibility, weather, wind} = res
+
+      const {temp, humidity, pressure} = main;
+      const {country, sunrise, sunset} = sys;
+      const {id, description, icon} = weather[0]
+      const {speed} = wind
+
+      return props.navigation.navigation.navigate('WeatherCard',
+        {temp,humidity, pressure, name, visibility, id, description, icon, speed, country, sunrise, sunset})
+          
+        }
        
       
      })
