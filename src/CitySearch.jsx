@@ -1,38 +1,34 @@
-import React, { Component, useState } from 'react';
-
+import React, {  useState } from 'react';
 import {StyleSheet, Text, View, TextInput, Button} from 'react-native';
-import { unstable_renderSubtreeIntoContainer, render } from 'react-dom';
 import getCity from './Api';
+import NotificationsScreen from './Notifications';
 
-export default function CitySearch (){
 
-   const[cityText, setCityText] = useState('');
+export default function CitySearch (props){
+
+   const[cityText, setCityText] = useState([]);
     
     
+   function handleCity(city){
 
-        // function fetchCity(){
-
-        //     getCity().then(res => {
-        //         console.log(res)
-            
-              
-        //     })
-        //     //navigate to City page with return value of getCity as props
-
-        // }
-
-        /* .then((responseJson) => {
-
-        this.setState({
-          isLoading: false,
-          dataSource: responseJson.movies,
-        }*/ 
+    getCity().then(res=>{
+       
+       setCityText(prevState=>{
+           return [...prevState, res]
+           
+       })
+     })
+   };
 
     return (<View>
 
     <TextInput   placeholder= "city name"/>
 
-       <Button  title= "search">Search</Button>
+       <Button onPress={handleCity} title= "search">Search</Button>
+       <Button
+        title="Go to Notifications"
+        onPress={() => props.navigation.navigation.navigate(NotificationsScreen, {x:1})}
+      />
 </View>)
     }
 

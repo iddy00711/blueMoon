@@ -1,29 +1,15 @@
-export default function getCity() {
-    return fetch('https://reactnative.dev/movies.json')
-      .then((response) =>  response.json())
-      .catch((error) => {
-        console.error(error);
-      });
+
+
+export default async function getCity(location) {
+    const res = await fetch('https://api.openweathermap.org/data/2.5/weather?q=London&appid=045846a6dd5da525b8c1e0e39e795fa5', {origin:'cors'})
+      
+    const resData = await res.json()
+
+    console.log(resData)
+    const {main:temp}= resData
+    console.log(temp.temp)
+    return temp.temp
   }
 
 
 
-//.then((responseJson) => {
-//     console.log('api')
-//     return responseJson.movies;
-//   })
-// import axios from 'axios';
-
-
-
-
-
-// export default function getCity(cityName){
-//     const url =""
-
-//     axios.get(`${}${cityName}`).then(res=>{
-//         console.log(res)
-//         return res
-//     })
-//     //.then(return )
-// }

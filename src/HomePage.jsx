@@ -1,21 +1,18 @@
 import React from 'react';
 
-import { StyleSheet, Text, View, Button, TextInput } from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
 
 import CitySearch from './CitySearch';
 
-export default function HomePage(){
+
+export default function HomePage(props){
    return (
     <View>
         <Text >
-            Clear Sky UK
+            Clear Sky UK /n
+             Type in to see the visibility for stars in your area
         </Text>
-        <Text>
-            Type in to see the visibility for stars in your area
-        </Text>
-       
-       <CitySearch/>
-      
+        <CitySearch navigation={props}/> 
     </View>)
 }
 
