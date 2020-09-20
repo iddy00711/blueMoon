@@ -3,7 +3,7 @@ import {View, Text} from 'react-native';
 
 export default function WeatherCard(props){
       const { 
-          temp,humidity, pressure, name, visibility, id:weatherId, description, icon, speed:windSpeed, country, sunrise, sunset
+          temp,humidity, pressure, name, visibility, id:weatherId, description, icon, speed:windSpeed, country, sunrise, sunset, cloud
         } = props.route.params;
      
 
@@ -12,6 +12,7 @@ export default function WeatherCard(props){
     
    return ( <View>
         <Text>
+        {cloud}
         {name}
         {country}
         {description}
