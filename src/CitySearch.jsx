@@ -1,8 +1,73 @@
+import { LinearGradient } from 'expo-linear-gradient';
 import React, {  useState } from 'react';
-import {StyleSheet, Text, View, TextInput, Button, Alert} from 'react-native';
+import {StyleSheet, Text, View, TextInput, TouchableOpacity, Alert, Dimensions} from 'react-native';
 import getCity from './Api';
 import WeatherCard from './WeatherCard';
 
+let ScreenWidth = Dimensions.get("window").width;
+let ScreenHeight = Dimensions.get("window").height;
+
+console.log(ScreenHeight)
+
+const styles = StyleSheet.create({
+  container:{
+    height:ScreenHeight,
+    width:'100%',
+    display:'flex',
+    flex: 1,
+    justifyContent: "center",
+    padding: 0,
+    margin:0,
+  },
+  header:{
+
+  },
+  inputBar:{
+    backgroundColor: "white",
+    borderStyle:'line',
+    borderColor:'white',
+    borderRadius:10,
+    justifyContent:'center',
+    alignSelf:'center',
+    alignContent:'center',
+  
+    fontFamily:'comic sans',
+    marginTop:'5%',
+    marginBottom:0,
+    fontSize: 18,
+    color: "#fff",
+    fontWeight: "bold",
+    color:'black',
+    paddingVertical: 2,
+    paddingHorizontal: 3,
+
+  },
+ 
+    appButtonContainer: {
+      
+  
+    
+    elevation: 8,
+    backgroundColor: "#009688",
+    borderRadius: 5,
+    borderColor:'black',
+    borderStyle:'line',
+   
+    marginVertical:'2%',
+     marginHorizontal:'45%'
+    
+  },
+  appButtonText: {
+    fontFamily:'comic sans',
+    flex:1,
+    fontSize: 16,
+    color: "#fff",
+    fontWeight: "bold",
+    justifyContent:'center',
+    alignSelf: "center",
+    textTransform: "uppercase"
+  }
+})
 
 export default function CitySearch (props){
 
@@ -52,11 +117,25 @@ export default function CitySearch (props){
 
    
 
-    return (<View>
+    return (
 
-    <TextInput onChangeText={handleChange}  placeholder= "city name"/>
-       <Button onPress={handleCity}  title= "search">Search</Button>
-</View>)
+     
+
+    <View style={styles.container}>
+
+  
+    <TextInput style={styles.inputBar} onChangeText={handleChange}  placeholder= "city name"/>
+
+    
+
+       <TouchableOpacity style={styles.appButtonContainer} onPress={handleCity}  title= "search">
+         <LinearGradient colors={["grey", "black"]}>
+         <Text style={styles.appButtonText}>search</Text>
+         </LinearGradient>
+       </TouchableOpacity>
+    
+</View>
+     )
     }
 
 

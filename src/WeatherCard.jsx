@@ -49,7 +49,7 @@ const styles = StyleSheet.create({
     }
 })
 
-//let ScreenWidth = Dimensions.get("window").width;
+
 
 export default function WeatherCard(props){
     console.log('weatherCard')
@@ -61,7 +61,8 @@ export default function WeatherCard(props){
     let tempx = Math.round( temp-273, 2)
 
     
-   return ( <View style={styles.container}>
+    return (
+    <View style={styles.container}>
     <LinearGradient
         // Background Linear Gradient
         colors={['#171e26', '#3f586b']}
@@ -97,5 +98,6 @@ export default function WeatherCard(props){
 
           </View>
       </View>
-    </View>)
+    </View>
+ )
 }
