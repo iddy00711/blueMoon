@@ -66,7 +66,7 @@ export default function HomePage(props){
         </Text>
       
         {starArr.map(ele=>{
-            let randomNum = (Math.random()*5)/12;
+            let randomNum = (Math.round(Math.random()*3.1425956)/10);
             console.log(randomNum)
             return( <Text style={{position:'absolute',
         textShadowColor: "red",
@@ -78,8 +78,8 @@ export default function HomePage(props){
         top:`${Math.random()*40}vh`,
         left:`${Math.random()*95}vw`,
         right:'70%',
-        height: `${randomNum}%`,
-  width: `${randomNum}%`,
+        height: `${randomNum+0.02}%`,
+  width: `${randomNum+0.02}%`,
   backgroundColor: "white",
   borderRadius: "50%",
   
