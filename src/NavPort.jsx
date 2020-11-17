@@ -23,7 +23,7 @@ export default function NavPort(){
     return (
     <NavigationContainer style={styles.container}>
         <Stack.Navigator>
-            <Stack.Screen name="HomePage" component={HomePage} options={{title: 'false'}} />
+            <Stack.Screen name="HomePage" component={HomePage} />
             <Stack.Screen name="WeatherCard" component={WeatherCard} headerShown= 'false'/>
         </Stack.Navigator> 
     </NavigationContainer>

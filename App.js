@@ -1,12 +1,18 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-import NavPort from './src/NavPort'
+import Animations from './src/animations';
+import NavPort from './src/NavPort';
+import SkyAnimation from './src/skyAnimation';
+import Wave from './src/Wave'
+
 
 
 export default function App() {
   return (
-    <NavPort/>
+    // <Wave/>
+    // <Animations/>
+     <NavPort/>
   );
 }
 

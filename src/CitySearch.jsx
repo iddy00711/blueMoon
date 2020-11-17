@@ -23,23 +23,25 @@ const styles = StyleSheet.create({
 
   },
   inputBar:{
+    textAlign:'center',
     backgroundColor: "white",
-    borderStyle:'line',
+    borderStyle:'solid',
     borderColor:'white',
     borderRadius:10,
     justifyContent:'center',
     alignSelf:'center',
     alignContent:'center',
+    alignItems:'center',
   
     fontFamily:'comic sans',
     marginTop:'5%',
     marginBottom:0,
-    fontSize: 18,
-    color: "#fff",
+    fontSize: '2rem',
     fontWeight: "bold",
     color:'black',
     paddingVertical: 2,
     paddingHorizontal: 3,
+    
 
   },
  
@@ -51,16 +53,16 @@ const styles = StyleSheet.create({
     backgroundColor: "#009688",
     borderRadius: 5,
     borderColor:'black',
-    borderStyle:'line',
+    borderStyle:'solid',
    
     marginVertical:'2%',
      marginHorizontal:'45%'
     
   },
   appButtonText: {
+    
     fontFamily:'comic sans',
-    flex:1,
-    fontSize: 16,
+    fontSize: '2vw',
     color: "#fff",
     fontWeight: "bold",
     justifyContent:'center',
