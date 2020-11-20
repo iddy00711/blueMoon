@@ -1,10 +1,11 @@
 import React from 'react';
 import {View, Text, StyleSheet, Dimensions, Image} from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
+// import styles from './styles/styles'
 
 
-let ScreenWidth = Dimensions.get("window").width;
-let ScreenHeight = Dimensions.get("window").height;
+// let ScreenWidth = Dimensions.get("window").width;
+// let ScreenHeight = Dimensions.get("window").height;
 
 const styles = StyleSheet.create({
     container:{
@@ -67,7 +68,7 @@ const styles = StyleSheet.create({
 //let ScreenWidth = Dimensions.get("window").width;
 
 export default function WeatherCard(props){
-    console.log('weatherCard')
+    
       const { 
           temp,humidity, pressure, name, visibility, id:weatherId, description, icon, speed:windSpeed, country, sunrise, sunset
         } = props.route.params;
@@ -78,7 +79,6 @@ export default function WeatherCard(props){
     
    return ( 
     <LinearGradient
-        // Background Linear Gradient
         colors={['#171e26', '#3f586b']}
         style={{
           position: 'absolute',
@@ -99,18 +99,25 @@ export default function WeatherCard(props){
         
 
         <Text style={styles.text} >
-        {name} 
+        City: {name} 
         </Text>
-        <Text style= {styles.text}>{tempx +'c'}
-        </Text>
-        <Text style={styles.text}>
-        {country}
+        <Text style= {styles.text}>
+        Temperture: {tempx +'c'}
         </Text>
         <Text style={styles.text}>
-        {description}
+        Country: {country}
         </Text>
         <Text style={styles.text}>
-        {windSpeed}
+        Weather: {description}
+        </Text>
+        <Text style={styles.text}>
+        Wind Speed: {windSpeed}
+        </Text>
+        <Text style={styles.text}>
+        Sunset: {sunset}
+        </Text>
+        <Text style={styles.text}>
+        Sunrise: {sunrise}
         </Text>
         
       </View>
