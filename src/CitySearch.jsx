@@ -11,7 +11,7 @@ console.log(ScreenHeight)
 
 const styles = StyleSheet.create({
   container:{
-    height:ScreenHeight,
+    position:'relative',
     width:'100%',
     display:'flex',
     flex: 1,
@@ -19,10 +19,9 @@ const styles = StyleSheet.create({
     padding: 0,
     margin:0,
   },
-  header:{
-
-  },
+  
   inputBar:{
+    position:'absolute',
     textAlign:'center',
     backgroundColor: "white",
     borderStyle:'solid',
@@ -32,17 +31,15 @@ const styles = StyleSheet.create({
     alignSelf:'center',
     alignContent:'center',
     alignItems:'center',
-  
     fontFamily:'comic sans',
     marginTop:'5%',
     marginBottom:0,
-    fontSize: '2rem',
+    fontSize: '3vh',
     fontWeight: "bold",
     color:'black',
     paddingVertical: 2,
     paddingHorizontal: 3,
-    
-
+    top:'50vh'
   },
  
     appButtonContainer: {
@@ -56,18 +53,26 @@ const styles = StyleSheet.create({
     borderStyle:'solid',
    
     marginVertical:'2%',
-     marginHorizontal:'45%'
+     marginHorizontal:'45%',
+     position:'absolute',
     
   },
   appButtonText: {
+
+    position:'absolute',
+    borderRadius:'90%',
     
     fontFamily:'comic sans',
     fontSize: '2vw',
-    color: "#fff",
+    backgroundColor: "#fff",
     fontWeight: "bold",
     justifyContent:'center',
-    alignSelf: "center",
-    textTransform: "uppercase"
+    alignSelf:'center',
+    alignContent:'center',
+    alignItems:'center',
+    
+    top:'15vh',
+    left:'2vw'
   }
 })
 

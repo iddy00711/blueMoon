@@ -97,7 +97,7 @@ export default function HomePage(props){
         <Text style={styles.titleText}>
         Type in to see the visibility for stars in your area
         </Text>
-        <CitySearch navigation={props}/> 
+        <CitySearch style={{top:'70%'}} navigation={props}/> 
     </View>
    
     </LinearGradient>)
