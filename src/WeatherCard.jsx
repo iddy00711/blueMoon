@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, Text, StyleSheet, Dimensions} from 'react-native';
+import {View, Text, StyleSheet, Dimensions, Image} from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 
 
@@ -8,48 +8,63 @@ let ScreenHeight = Dimensions.get("window").height;
 
 const styles = StyleSheet.create({
     container:{
-        justifyContent:"center",
-        display:'flex',
-        flex: 1,
+    justifyContent:"center",
+    display:'flex',
+    flex: 1,
     padding: 8,
     margin:8
     },
+    imageCircle:{
+      blurRadius:'50',
+      border:'solid',
+      borderColor:'red',
+       position:'absolute',
+      height:350,
+      width:350,
+      borderRadius:'50%',
+     
+      top:'6%',
+      left:'41%',
+
+
+    },
  
     text:{
-        flex: 0.3,
-    
-        color: "white",
+      position:'relative',
+      fontSize:'1em',
+    color: "white",
     textShadowColor: "blue",
     textShadowRadius: 1,
-    margin: 44,
     textAlign:'center',
     paddingLeft:40,
-    fontFamily:'comic sans'
+    fontFamily:'comic sans',
+   
+    
 
 
     },
     box:{
+      position:"relative",
        flex:1,
-       justifyContent:"center",
-        backgroundColor: "deepskyblue",
+       alignSelf:"center",
+       justifyContent: 'space-evenly',
+        backgroundColor: "black",
         borderWidth: 3,
         borderStartColor:'grey',
-        opacity:0.7,
+        opacity:0.9,
         alignItems:'center',
         flexDirection:'column',
-        borderTopLeftRadius: 20,
-    borderTopRightRadius: 20,
+        height:'20vh',
+        width:'20vw',
     margin: '10%',
-    marginBottom:'15%',
-    marginBottom:'15%',
-    marginLeft:'30%',
-    marginRight:'30%',
-    padding:10
+    padding:3,
+    top:'20vh',
+    overflow:'hidden'
 
     }
 })
 
-
+//let ScreenWidth = Dimensions.get("window").width;
 
 export default function WeatherCard(props){
     console.log('weatherCard')
@@ -61,8 +76,7 @@ export default function WeatherCard(props){
     let tempx = Math.round( temp-273, 2)
 
     
-    return (
-    <View style={styles.container}>
+   return ( 
     <LinearGradient
         // Background Linear Gradient
         colors={['#171e26', '#3f586b']}
@@ -71,19 +85,23 @@ export default function WeatherCard(props){
           left: 0,
           right: 0,
           top: 0,
-          height: ScreenHeight
+          bottom:0,
+          height: '100vh',
+          overflow:'hidden'
         }}
-      />
-      <View style={styles.box}>
-          
-          <View style={styles.text}>
+      >
+      <View style={styles.container}>
 
-          <LinearGradient  colors={['#4c669f', '#3b5998', '#192f6a']}
-        style={{ padding: 5, alignItems: 'center', borderRadius: 2 }}>
+  <Image style={styles.imageCircle} source={require('./clouds3.jpg')}/>
+      <View style={styles.box}>
+     
+          
+        
 
         <Text style={styles.text} >
-        {name } 
-       {tempx+'c'} 
+        {name} 
+        </Text>
+        <Text style= {styles.text}>{tempx +'c'}
         </Text>
         <Text style={styles.text}>
         {country}
@@ -94,10 +112,8 @@ export default function WeatherCard(props){
         <Text style={styles.text}>
         {windSpeed}
         </Text>
-          </LinearGradient>
-
-          </View>
+        
       </View>
     </View>
- )
+    </LinearGradient>)
 }
