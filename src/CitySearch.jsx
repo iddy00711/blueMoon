@@ -4,7 +4,10 @@ import getCity from './Api';
 import WeatherCard from './WeatherCard';
 
 
+
 export default function CitySearch (props){
+
+
 
    const[cityText, setCityText] = useState('');
 
@@ -32,15 +35,16 @@ export default function CitySearch (props){
        }
 
         else  {
-          const {main, name, sys, visibility, weather, wind} = res
+          const {main, name, sys, visibility, weather, wind, clouds} = res
 
       const {temp, humidity, pressure} = main;
       const {country, sunrise, sunset} = sys;
       const {id, description, icon} = weather[0]
       const {speed} = wind
+      const{all:cloud} = clouds
 
       return props.navigation.navigation.navigate('WeatherCard',
-        {temp,humidity, pressure, name, visibility, id, description, icon, speed, country, sunrise, sunset})
+        {temp,humidity, pressure, name, visibility, id, description, icon, speed, country, sunrise, sunset, cloud})
           
         }
        
