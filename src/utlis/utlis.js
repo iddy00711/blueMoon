@@ -1,16 +1,16 @@
 
 
 function getTimeFromUnixTime(timeStamp){
-    const date={month:new Date(timeStamp).getMonth(),hour:new Date(timeStamp).getHours()}
+    const time={month:new Date(timeStamp*1000).getMonth(),hour:new Date(timeStamp*1000).getHours()}
 
 
-return date;
+return time;
 
 };
 function getLengthOfNight(sunset, sunrise){
     
 
-    return sunset-sunrise
+    return ((24-sunset)+sunrise)
 
 };
 
@@ -100,14 +100,26 @@ function convertKelToCel(k){
 
 function calculateSeeing(pressure, windSpeed){
 
-}
+};
 
 function calculateTransparacey(humidity, visibility){
 
 
 
+};
+
+function convertFirstLetter(string){
+    if(typeof(string)!== 'string'||string===''){
+        return '';
+    }
+    else{
+
+        const stringArr = string.split('')
+    
+        return (stringArr[0].toUpperCase()+stringArr.slice(1, stringArr.lenth).join(''))
+    }
+
 }
 
 
-   module.exports = {getTimeFromUnixTime, convertKelToCel, getLengthOfNight, cloudVis, calculateVisibility, qualityOfDarkness };
-// function calculateVisibility (cloudiness, rainPercent, sunset, sunrise)
+   module.exports = {getTimeFromUnixTime, convertKelToCel, getLengthOfNight, cloudVis, calculateVisibility, qualityOfDarkness, convertFirstLetter };

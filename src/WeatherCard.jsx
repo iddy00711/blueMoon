@@ -1,33 +1,34 @@
 import React from 'react';
 import {View, Text, StyleSheet, Dimensions, Image} from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
-// import styles from './styles/styles'
+// import styles from './styles/styles';
+import {getTimeFromUnixTime, convertKelToCel, getLengthOfNight, cloudVis, calculateVisibility, qualityOfDarkness} from './utlis/utlis'
 
 
-// let ScreenWidth = Dimensions.get("window").width;
-// let ScreenHeight = Dimensions.get("window").height;
+ 
+
 
 const styles = StyleSheet.create({
     container:{
+      position:'relative',
+      width:'18vw',
+      height:'90vh',
+    alignItems:'center',
     justifyContent:"center",
     display:'flex',
     flex: 1,
-    padding: 8,
-    margin:8
+    flexDirection:'column',
+    padding: 10,
+    margin:10
     },
     imageCircle:{
-      blurRadius:'50',
-      border:'solid',
       borderColor:'red',
-       position:'absolute',
-      height:350,
-      width:350,
+      position:'absolute',
+      height:'34vh',
+      width:'18vw',
       borderRadius:'50%',
-     
       top:'6%',
       left:'41%',
-
-
     },
  
     text:{
@@ -37,30 +38,37 @@ const styles = StyleSheet.create({
     textShadowColor: "blue",
     textShadowRadius: 1,
     textAlign:'center',
-    paddingLeft:40,
     fontFamily:'comic sans',
+    padding:5
    
     
 
 
     },
     box:{
+   shadowColor: 'red',
+   shadowOffset: { width: 2, height: 2 },
+   shadowOpacity: 0.6,
+   shadowRadius: 10,
+   elevation: 3,
+      borderBottomLeftRadius:'5%',
+      borderBottomRightRadius:'5%',
+      borderTopLeftRadius:'10%',
+      borderTopRightRadius:'10%',
       position:"relative",
-       flex:1,
-       alignSelf:"center",
+       flex:0.8,
        justifyContent: 'space-evenly',
         backgroundColor: "black",
         borderWidth: 3,
         borderStartColor:'grey',
-        opacity:0.9,
         alignItems:'center',
         flexDirection:'column',
-        height:'20vh',
-        width:'20vw',
+        height:'25vh',
+        width:'18vw',
     margin: '10%',
     padding:3,
-    top:'20vh',
-    overflow:'hidden'
+    top:'16vh',
+    left:'60vh'
 
     }
 })
@@ -74,7 +82,12 @@ export default function WeatherCard(props){
         } = props.route.params;
      
 
-    let tempx = Math.round( temp-273, 2)
+    let tempx = Math.round( temp-273, 2);
+
+    const dust = getTimeFromUnixTime(sunset).hour;
+    const dawn = getTimeFromUnixTime(sunrise).hour;
+
+   
 
     
    return ( 
@@ -90,14 +103,11 @@ export default function WeatherCard(props){
           overflow:'hidden'
         }}
       >
-      <View style={styles.container}>
+      <View style={[styles.container], StyleSheet.absoluteFillObject}>
 
   <Image style={styles.imageCircle} source={require('./clouds3.jpg')}/>
       <View style={styles.box}>
-     
-          
-        
-
+  
         <Text style={styles.text} >
         City: {name} 
         </Text>
@@ -114,10 +124,13 @@ export default function WeatherCard(props){
         Wind Speed: {windSpeed}
         </Text>
         <Text style={styles.text}>
-        Sunset: {sunset}
+        Sunset: {dust}
         </Text>
         <Text style={styles.text}>
-        Sunrise: {sunrise}
+        Sunrise: {dawn}
+        </Text>
+        <Text style = {styles.text}>
+          Length of Night: {getLengthOfNight(dust, dawn)} hours
         </Text>
         
       </View>

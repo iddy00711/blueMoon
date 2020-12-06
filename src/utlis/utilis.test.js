@@ -1,5 +1,5 @@
 
-const {getTimeFromUnixTime, convertKelToCel, getLengthOfNight, cloudVis, calculateVisibility, qualityOfDarkness} = require('./utlis');
+const {getTimeFromUnixTime, convertKelToCel, getLengthOfNight, cloudVis, calculateVisibility, qualityOfDarkness, convertFirstLetter} = require('./utlis');
 
 
 test('Return 0 if given undefined', ()=>{
@@ -99,7 +99,27 @@ test('Return object if given 1560281377', ()=>{
         })
     });
     test('Return 8 if given cloudiness of 0 and nightLength of 13', ()=>{
-        expect(calculateVisibility(0, 1600631058, 1605088800)).toBe(8)
+        expect(calculateVisibility(0, 1600631058, 1605088800)).toBe(8);
     });
+
+    //string tests
+
+    test('Return empty string when given empty string or non-string', ()=>{
+        expect(convertFirstLetter('')).toBe('');
+        expect(convertFirstLetter(123)).toBe('');
+    });
+
+    test('Return an uppercase letter when given 1 lowercase letter', ()=>{
+        expect(convertFirstLetter('a')).toBe('A');
+        
+    });
+
+    test('Return a word with an uppercase first letter when given a lowercase word', ()=>{
+        expect(convertFirstLetter('able')).toBe('Able');
+        expect(convertFirstLetter('manchester')).toBe('Manchester');
+        
+    });
+
+
 
 
