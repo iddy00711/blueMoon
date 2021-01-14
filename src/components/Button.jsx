@@ -1,17 +1,21 @@
 import React from 'react';
-import { View, TouchableOpacity } from 'react-native';
+import { View, TouchableOpacity, Image } from 'react-native';
 import {AntDesign} from '@expo/vector-icons';
 
-export default function button (props){
+
+export default function Button ({handlePress, name}){
 
       return (
-        <TouchableOpacity onPress={props.handleCity}  title= "search">
-        <View style ={[{
+        <TouchableOpacity 
+        onPress={handlePress} 
+         title= "search">
+          <View style ={[{
         width:'.1em',
         height:'.1em',
         borderRadius:'.1em',
         backgroundColor:'#444',
-        top:'6.5vh'
+        margin:10,
+         top:'5vh',
         },
         {
         justifyContent:'center',
@@ -19,8 +23,9 @@ export default function button (props){
         backgroundColor:'transparent'
         }]}>
 
-       <AntDesign name='arrowright' size={42} color={'white'}/>
-       </View>
+          <AntDesign name = {name} size={42} color={'white'}/>
+       
+        </View>
       </TouchableOpacity>
     
 

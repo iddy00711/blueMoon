@@ -90,7 +90,8 @@ React.useEffect(()=>{
             defaultValue='0'
             style={[
                 StyleSheet.absoluteFillObject,
-                {fontSize: radius/2,
+                {
+                    fontSize: radius/2,
                 color:textColor??color},
                 {fontWeight:900,
                 textAlign:'center'}

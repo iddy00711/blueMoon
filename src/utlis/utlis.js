@@ -1,3 +1,8 @@
+import React, { Component } from 'react';
+import Raindrop from '../components/Raindrop';
+import Lightening from '../components/Lightening';
+
+
 
 
 function getTimeFromUnixTime(timeStamp){
@@ -119,7 +124,10 @@ function convertFirstLetter(string){
         return (stringArr[0].toUpperCase()+stringArr.slice(1, stringArr.lenth).join(''))
     }
 
-}
+};
 
 
-   module.exports = {getTimeFromUnixTime, convertKelToCel, getLengthOfNight, cloudVis, calculateVisibility, qualityOfDarkness, convertFirstLetter };
+
+
+
+   export  {getTimeFromUnixTime, convertKelToCel, getLengthOfNight, cloudVis, calculateVisibility, qualityOfDarkness, convertFirstLetter,  };
