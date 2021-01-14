@@ -9,7 +9,9 @@
       "image": "./assets/splash.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
+
     },
+   
     "updates": {
       "fallbackToCacheTimeout": 0
     },
